@@ -10,28 +10,17 @@
     padding: 0;
     height: 100vh;
     overflow: hidden;
+
     background: url('cUejW3aK2jqd1DHpuRJy2.png') no-repeat center center fixed;
     background-size: cover;
+
     font-family: Arial, sans-serif;
     color: white;
     text-shadow: 2px 2px 4px black;
-  }
-@media (max-width: 600px) {
-  .scrolling-text {
-    position: absolute;
-    bottom: 40px;
-    width: 100%;
-    text-align: center;
-    font-size: 2.6rem;
-    line-height: 1.35rem;
-    animation: none;
-    padding: 20px;
-    bottom: 24px;
-  }
 
-  @keyframes scrollUp {
-    0% { bottom: -100%; }
-    100% { bottom: 120%; }
+    display: flex;
+    justify-content: center;   /* horizontal centering */
+    align-items: center;       /* vertical centering */
   }
 
   .button-container {
@@ -39,6 +28,7 @@
     top: 20px;
     width: 100%;
     text-align: center;
+    z-index: 10;
   }
 
   button {
@@ -55,13 +45,41 @@
   button:hover {
     background: #e60000;
   }
+
+  .scrolling-text {
+    position: relative;
+    width: min(900px, 90vw);
+    text-align: center;
+
+    font-size: 2.8rem;
+    line-height: 1.35;
+
+    padding: 24px;
+
+    animation: none;
+
+    transform: translateX(60px); /* shifts text right */
+  }
+
+  @media (max-width: 600px) {
+    .scrolling-text {
+      font-size: 2.2rem;
+      padding: 18px;
+      transform: translateX(30px); /* gentler shift on phones */
+    }
+
+    button {
+      font-size: 20px;
+      padding: 14px 22px;
+    }
+  }
 </style>
 </head>
 
 <body>
 
 <div class="button-container">
-  <button onclick="playMusic()">Play Star-Spangled Banner</button>
+  <button onclick="playMusic()">Play Star‑Spangled Banner</button>
 </div>
 
 <div class="scrolling-text">
